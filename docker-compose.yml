@@ -1,0 +1,18 @@
+version: "2.4"
+
+services:
+  postgres:
+    container_name: db-postgress
+    image: postgres:14.7-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: desarrollo123
+      POSTGRES_DB: interapp
+    ports:
+      - "5432:5432"
+    volumes:
+      - db:/var/lib/postgresql/data
+volumes:
+  db:
+    driver: local
